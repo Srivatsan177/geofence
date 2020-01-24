@@ -20,7 +20,9 @@ class AdminController extends Controller
     }
 
     public function index(){
-        return view("admin.index");
+        $states=State::with("dist")->get();
+        // dd($states);
+        return view("admin.index")->with("states",$states);
     }
 
     public function create(){
@@ -75,5 +77,10 @@ class AdminController extends Controller
             $land->areas_id=$request->input('area');
             $land->save();
             return redirect('/index');
+     }
+
+     public function showDist($state_id){
+        $dists=District::with("taluk")->get();
+        return view("admin.showDist")->with("dists",$dists) ;
      }
 }

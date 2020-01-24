@@ -25,3 +25,5 @@ Route::post('/store','AdminController@store');
 Route::get('/get-dist','AdminController@getDist');
 Route::get('/get-taluka','AdminController@getTaluka');
 Route::get('/get-area','AdminController@getArea');
+
+Route::get("/show/{state_id}","AdminController@showDist");

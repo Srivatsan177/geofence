@@ -12,4 +12,8 @@ class District extends Model
     public function dist(){
         return $this->belongsTo("App\State");
     }
+
+    public function taluk(){
+        return $this->hasMany("App\Taluka","districts_id");
+    }
 }

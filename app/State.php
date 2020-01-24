@@ -9,6 +9,6 @@ class State extends Model
     public $timestamps=false;
 
     public function dist(){
-        return $this->hasMany("App\District");
+        return $this->hasMany("App\District",'states_id');
     }
 }

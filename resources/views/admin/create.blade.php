@@ -81,18 +81,21 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Latitude :</label>
-                                    <input type="text" name="latitude" placeholder="Enter Latiitude:" class="form-control"
+                                    <input type="text" id="latitude" name="latitude" placeholder="Enter Latiitude:" class="form-control"
                                     required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Longitude :</label>
-                                    <input type="text" name="longitude" placeholder="Enter Longitude:" class="form-control"
+                                    <input type="text" id="longitude" name="longitude" placeholder="Enter Longitude:" class="form-control"
                                     required>
                                 </div>
                             </div>
+
+                            <button type="button" id="check">Check</button>
                         </div>
+
 
                         <div class="row">
                             <div class="col-md-6">
@@ -158,17 +161,21 @@
             },
         });
         });
+        $('#check').on("click",function(){
+            var lat=document.getElementById('latitude').value;
+            var long=document.getElementById('longitude').value;
+            var lat_minus=parseInt(lat)-0.0611111;
+            var lat_minus=lat_minus.toString();
+            var lat_plus=parseInt(lat)-0.0600000;    
+            var lat_plus=lat_plus.toString();
+            var long_minus=parseInt(long)-0.0500000;
+            var long_minus=long_minus.toString();
+            var long_plus=parseInt(long)+0.0500000;
+            var long_plus=long_minus.toString();
+            alert("https://www.openstreetmap.org/export/embed.html?bbox="+long_minus+"%2C"+lat_minus+"%2"+long_plus+"%2C"+lat_plus+"&amp;layer=mapnik&amp;marker="+long+"%2C"+lat);
+            document.getElementById('map').src="https://www.openstreetmap.org/export/embed.html?bbox="+long_minus+"%2C"+lat_minus+"%2C"+long_plus+"%2C"+lat_plus+"&amp;layer=mapnik&amp;marker="+lat+"%2C"+long;
+        });
+        // src="https://www.openstreetmap.org/export/embed.html?bbox=75.64807891845705%2C19.702879865804036%2C75.77957153320314%2C19.80014020033567&amp;layer=mapnik&amp;marker=19.7514798%2C75.71388839999997"
     });
-    function changeiframe(){
-        var lat=document.getElementsByName('latitude');
-        var long=document.getElementsByName('longitude');
-        var lat_minus=parseInt(lat)-0.06;
-        var lat_minus=lat_minus.toString();
-        var lat_plus=parseInt(lat)-0.06;
-        var lat_plus=lat_plus.toString();
-        var long_minus=parseInt(long)-0.05;
-        var long_minus=long_minus.toString();
-        var long_plus=parseInt(long)+0.05;
-        var long_plus=long_minus.toString();
-        
-        document.getElementById('map').src="https://www.openstreetmap.org/export/embed.html?bbox=+"long_minus"+%2C+"lat_minus"+%2+"long_plus"+%2C+"lat_plus"+&amp;layer=mapnik&amp;marker=+"long"+%2C+"lat"";
+</script>
+@endsection
