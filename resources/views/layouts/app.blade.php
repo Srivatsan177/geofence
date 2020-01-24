@@ -22,10 +22,10 @@
   crossorigin="anonymous"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AiTdUBKTZJ75d7IeoOiirf-13eQLgmINgtCPeL3LZRQDVbiAio4RMDgUcpqIS5xq'></script>
 
 </head>
-<body>
+<body onload='loadMapScenario();'>
     <div>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">

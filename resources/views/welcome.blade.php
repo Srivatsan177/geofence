@@ -3,44 +3,9 @@
 @section('content')
 
 <div class="row">
-<div class="col-3">
-  <aside class="menu-sidebar d-none d-lg-block">
-      <div class="menu-sidebar__content js-scrollbar1">
-          <nav class="navbar-sidebar">
-              <ul class="list-unstyled navbar__list">
-                  <li class="has-sub">
-                    <li class="active">
-                      <a href="index.php">
-                      Dashboard</a>
-                  </li>
-                  </li>
-                  <li>
-                      <a href="#">
-                      Page 1</a>
-                  </li>
-                  <li>
-                      <a href="#">
-                      Page 2</a>
-                  </li>
-                  <li>
-                      <a href="#">
-                      Page 3</a>
-                  </li>
-                  <li>
-                      <a href="#">
-                      Page 4</a>
-                  </li>
-                  <li>
-                      <a href="#">
-                      Page 5</a>
-                  </li>
-                      </ul>
-                  </li>
-              </ul>
-          </nav>
-      </div>
-  </aside>
-</div>
+    <div class="col-md-2" style="background-color:#204a84;">
+        @include('admin.inc.sidebar')
+    </div>
 
 <div class="col-9">
   <div class="container-fluid">
@@ -70,6 +35,7 @@
             </div>
         </div>
     </div>
+  </div>
   </div>
 </div>
 </div>

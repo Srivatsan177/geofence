@@ -10,20 +10,24 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>District Name</th>
-                        <th>Count Districts</th>
+                        <th>Area Name</th>
+                        <th>Count Lands</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($dists as $dist)
+                    @foreach ($areas as $area)
                         <tr>
                         <td>
-                            <a href="/show/{{$state_id}}/{{$dist->id}}/">{{$dist->district}}</a>
+                            <a href="/show/{{$state_id}}/{{$dist_id}}/{{$taluk_id}}/{{$area->id}}">{{$area->name}}</a>
                         </td>
                         <td>
-                            {{count($dist->taluk)}}
+                            {{count($area->land)}}
                         </td>
-                    </tr>
+                        <td>
+                            <a href="/edit_area/{{$area->id}}" class="btn btn-primary">Edit</a>
+                        </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>

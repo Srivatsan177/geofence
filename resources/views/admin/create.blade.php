@@ -9,9 +9,8 @@
                 <h2>Pin</h2>
                 <hr class="heading-hr">
             </center>
-            <iframe id='map' name="maps" width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=75.64807891845705%2C19.702879865804036%2C75.77957153320314%2C19.80014020033567&amp;layer=mapnik&amp;marker=19.7514798%2C75.71388839999997" 
-            style="border: 1px solid black"></iframe><br/>
-            
+            <div id="myMap" style="width:35vw;height:50vh;"></div>
+            <button id="my" class="btn btn-outline-success">Generate Area</button>         
         </div>
     </div>
     <div class="col-md-6">
@@ -79,21 +78,16 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
+                                <div class="form-group" id="mylat">
                                     <label>Latitude :</label>
-                                    <input type="text" id="latitude" name="latitude" placeholder="Enter Latiitude:" class="form-control"
-                                    required>
+                                    
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
+                                <div class="form-group" id="mylong">
                                     <label>Longitude :</label>
-                                    <input type="text" id="longitude" name="longitude" placeholder="Enter Longitude:" class="form-control"
-                                    required>
                                 </div>
                             </div>
-
-                            <button type="button" id="check">Check</button>
                         </div>
 
 
@@ -161,21 +155,37 @@
             },
         });
         });
-        $('#check').on("click",function(){
-            var lat=document.getElementById('latitude').value;
-            var long=document.getElementById('longitude').value;
-            var lat_minus=parseInt(lat)-0.0611111;
-            var lat_minus=lat_minus.toString();
-            var lat_plus=parseInt(lat)-0.0600000;    
-            var lat_plus=lat_plus.toString();
-            var long_minus=parseInt(long)-0.0500000;
-            var long_minus=long_minus.toString();
-            var long_plus=parseInt(long)+0.0500000;
-            var long_plus=long_minus.toString();
-            alert("https://www.openstreetmap.org/export/embed.html?bbox="+long_minus+"%2C"+lat_minus+"%2"+long_plus+"%2C"+lat_plus+"&amp;layer=mapnik&amp;marker="+long+"%2C"+lat);
-            document.getElementById('map').src="https://www.openstreetmap.org/export/embed.html?bbox="+long_minus+"%2C"+lat_minus+"%2C"+long_plus+"%2C"+lat_plus+"&amp;layer=mapnik&amp;marker="+lat+"%2C"+long;
-        });
         // src="https://www.openstreetmap.org/export/embed.html?bbox=75.64807891845705%2C19.702879865804036%2C75.77957153320314%2C19.80014020033567&amp;layer=mapnik&amp;marker=19.7514798%2C75.71388839999997"
+    });
+</script>
+<script type='text/javascript'>
+
+    var map;
+    var locs = [];
+    function loadMapScenario() {
+        map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
+        Microsoft.Maps.Events.addHandler(map, 'click', function (e) {
+            // alert(position);
+            var loc = new Microsoft.Maps.Location(
+                e.location.latitude,
+                e.location.longitude,
+            );
+            $(function(){
+                $("#mylat").append('<input type="text" id="latitude" name="latitude[]" placeholder="Enter Latiitude:" class="form-control" value="'+e.location.latitude+'" readonly>');
+                $("#mylong").append('<input type="text" id="latitude" name="longitude[]" placeholder="Enter Latiitude:" class="form-control" value="'+e.location.longitude+'" readonly>');
+            });
+            locs.push(loc);
+            console.log(locs);
+            var pushpin = new Microsoft.Maps.Pushpin(loc, null);
+            map.entities.push(pushpin);
+        });
+    }
+    $(function () {
+        $("#my").on("click", function () {
+            console.log(locs);
+            var polygon = new Microsoft.Maps.Polygon(locs);
+            map.entities.push(polygon);
+        });
     });
 </script>
 @endsection

@@ -4,7 +4,7 @@
         <hr style="border-color:white;">
     </li>
     <li class="nav-item my-2">
-        <a href="#" class="nav-link text-light"><i class="fa fa-home fa-lg"></i> Home</a>
+        <a href="/index" class="nav-link text-light"><i class="fa fa-home fa-lg"></i> Home</a>
     </li>
     <li class="nav-item my-2">
         <a href="/create" class="nav-link text-light"><i class="fa fa-plus-circle fa-lg"></i> Add Record</a>

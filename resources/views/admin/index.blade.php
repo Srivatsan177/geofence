@@ -15,16 +15,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
                         @foreach ($states as $state)
+                            <tr>
                             <td>
                                 <a href="/show/{{$state->id}}">{{$state->name}}</a>
                             </td>
                             <td>
                                 {{count($state->dist)}}
                             </td>
-                        @endforeach
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

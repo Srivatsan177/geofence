@@ -10,18 +10,18 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>District Name</th>
-                        <th>Count Districts</th>
+                        <th>talukrict Name</th>
+                        <th>Count talukricts</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($dists as $dist)
+                    @foreach ($taluks as $taluk)
                         <tr>
                         <td>
-                            <a href="/show/{{$state_id}}/{{$dist->id}}/">{{$dist->district}}</a>
+                            <a href="/show/{{$state_id}}/{{$dist_id}}/{{$taluk->id}}">{{$taluk->name}}</a>
                         </td>
                         <td>
-                            {{count($dist->taluk)}}
+                            {{count($taluk->area)}}
                         </td>
                     </tr>
                     @endforeach

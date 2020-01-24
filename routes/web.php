@@ -27,3 +27,22 @@ Route::get('/get-taluka','AdminController@getTaluka');
 Route::get('/get-area','AdminController@getArea');
 
 Route::get("/show/{state_id}","AdminController@showDist");
+Route::get("/show/{state_id}/{dist_id}","AdminController@showTaluk");
+Route::get("/show/{state_id}/{dist_id}/{taluka_id}","AdminController@showArea");
+Route::get("/edit_area/{area_id}","AdminController@editArea");
+Route::post("/update_area/{area_id}","AdminController@updateArea");
+Route::get("/show/{state_id}/{dist_id}/{taluka_id}/{area_id}","AdminController@showLand");
+Route::get("/edit_land/{land_id}/","AdminController@editLand");
+Route::post("/update_land/{land_id}","AdminController@updateLand");
+
+Route::get("user/view/{id}","UsersController@index");
+Route::get("/user/create","UsersController@create");
+Route::post("user/store","UsersController@store");
+Route::get("/user/view/crop/{land_id}","UsersController@showcrop");
+
+Route::get("/temp",function(){
+    return view("temp");
+});
+
+
+Route::get("/landUser/{land_id}/{user_id}","AdminController@landUser");
