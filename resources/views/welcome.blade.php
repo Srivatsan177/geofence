@@ -78,15 +78,15 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="{{asset("la.jpg")}}" alt="Los Angeles" style="width:100%;">
+        <img src="{{asset("img_1.jpg")}}" alt="Los Angeles" style="width:100%;">
       </div>
 
       <div class="item">
-        <img src="{{asset("chicago.jpg")}}" alt="Chicago" style="width:100%;">
+        <img src="{{asset("img_2.jpg")}}" alt="Chicago" style="width:100%;">
       </div>
     
       <div class="item">
-        <img src="{{asset("ny.jpg")}}" alt="New york" style="width:100%;">
+        <img src="{{asset("img_3.jpg")}}" alt="New york" style="width:100%;">
       </div>
     </div>
 

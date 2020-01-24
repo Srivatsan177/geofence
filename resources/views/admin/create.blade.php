@@ -171,4 +171,4 @@
         var long_plus=parseInt(long)+0.05;
         var long_plus=long_minus.toString();
         
-        document.getElementById('map').src="https://www.openstreetmap.org/export/embed.html?bbox=+"long_minus"+%2C+"lat_minus"+%2+"long_plus"+%2C+"lat_plus"+&amp;layer=mapnik&amp;marker=+"19.7514798%2C75.71388839999997"
+        document.getElementById('map').src="https://www.openstreetmap.org/export/embed.html?bbox=+"long_minus"+%2C+"lat_minus"+%2+"long_plus"+%2C+"lat_plus"+&amp;layer=mapnik&amp;marker=+"long"+%2C+"lat"";
