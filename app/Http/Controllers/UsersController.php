@@ -18,18 +18,22 @@ class UsersController extends Controller
     }
 
     public function showcrop($land_id){
-        $crop=Crop::whereLands_id($land_id)->get();   
+        $crop=Crop::whereLands_id($land_id)->get();
+        $user=Auth::user();
+        $land=Land::whereUsersId($user->id)->get()->first();
+        $loc=Location::whereLandId($land->id)->get()->first();
         if (count($crop)==0){
             return view('user.create');
         }
         // return $crop;
-        return view("user.crop")->with("crops",$crop);
+        return view("user.crop")->with("crops",$crop)->with('loc',$loc);
     }
     public function create(){
         return view('user.create');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $crop=new Crop;
         $crop->year=$request->input('year');
         $crop->quarter_num=$request->input('quarter_num');

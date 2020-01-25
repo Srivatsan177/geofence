@@ -11,7 +11,7 @@ use App\Land;
 use App\User;
 use App\Location;
 use App\Crop;
-
+use Carbon\Carbon;
 use Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -68,6 +68,7 @@ class AdminController extends Controller
                 $user->name=$request->input('name');
                 $user->email=$request->input('email');
                 $user->password=Hash::make('1234');
+                $user->user_type=2;
                 $user->save();
             }
 
@@ -152,4 +153,29 @@ class AdminController extends Controller
         return view("admin.landUser")->with('crops',$crop)->with('locs',$loc)->with('user',$user);
      }
 
+     public function predict(Request $request){
+        $hum=$request->input("hum");
+        $rainfall="569";
+        $temp=$request->input("temp");
+        $lat=$request->input("lat");
+        $loamy=$request->input("loamy");
+        $sandy=$request->input("sandy");
+        $quat=$request->input("quat");
+        $now=Carbon::now()->month;
+        if($now<=3){
+            $quat=1;
+        }
+        elseif($now<=6){
+            $quat=2;
+        }
+        elseif($now<=9){
+            $quat=3;
+        }
+        else{
+            $quat=1;
+        }
+        // return $now;
+        $result=shell_exec("C:/users/Srivatsan/Anaconda3/scripts/activate base && python C:/xampp/htdocs/geofence/public/temp1.py $quat $rainfall $temp $hum $lat $loamy $sandy 2>&1");
+        return $result;
+     }
 }

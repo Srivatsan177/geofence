@@ -46,3 +46,6 @@ Route::get("/temp",function(){
 
 
 Route::get("/landUser/{land_id}/{user_id}","AdminController@landUser");
+
+
+Route::get("/predict","AdminController@predict");

@@ -1,12 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    .table {
+   margin: auto;
+   width: 50% !important; 
+}
+</style>
 <div class="row">
     <div class="col-md-2">
         @include('admin.inc.sidebar')
     </div>
     <div class="col-md-10">
-        <table class="table table-striped">
+        <table class="table table-striped table-bordered">
             <thead>
                 <th>
                     Land Owner

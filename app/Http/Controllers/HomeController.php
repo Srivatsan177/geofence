@@ -28,8 +28,6 @@ class HomeController extends Controller
         if ($user->user_type==2){
             return redirect("user/view/$user->id");
         }
-        return view('home');
+        return redirect('/index');
     }
-
-    
 }

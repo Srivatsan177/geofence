@@ -11650,60 +11650,45 @@ pre {
   font-size: 10;
 }
 
-.menu-sidebar__content {
-  position: relative;
-  height: calc(100vh - 75px);
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #26272b;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
 
-.navbar-sidebar {
-  padding: 35px;
-  padding-bottom: 0;
-}
-
-.navbar-sidebar .navbar__list li a {
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
   display: block;
-  color: #555;
-  font-size: 16px;
-  padding: 15px 0;
 }
 
-.navbar-sidebar .navbar__list li a i {
-  margin-right: 19px;
+.sidenav a:hover {
+  color: #f1f1f1;
 }
 
-.navbar-sidebar .navbar__list li a:hover {
-  color: #4272d7;
+.main {
+  margin-left: 160px;
+  /* Same as the width of the sidenav */
+  font-size: 28px;
+  /* Increased text to enable scrolling */
+  padding: 0px 10px;
 }
 
-.navbar-sidebar .navbar__list li.active > a {
-  color: #4272d7;
-}
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
 
-.navbar-sidebar {
-  padding: 35px;
-  padding-bottom: 0;
-}
-
-.navbar-sidebar .navbar__list li a {
-  display: block;
-  color: #555;
-  font-size: 16px;
-  padding: 15px 0;
-}
-
-.navbar-sidebar .navbar__list li a i {
-  margin-right: 19px;
-}
-
-.navbar-sidebar .navbar__list li a:hover {
-  color: #4272d7;
-}
-
-.navbar-sidebar .navbar__list li.active > a {
-  color: #4272d7;
-}
-
-.has-sub {
-  position: relative;
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 

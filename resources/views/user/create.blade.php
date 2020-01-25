@@ -16,11 +16,11 @@
                 <input type="text" class="form-control" name="crop_name">
             </div>
            
-            <div class="dropdown">
+            <!-- <div class="dropdown">
             <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
                 
-            </button>
-            <select name="quarter_num" >
+            </button> -->
+            <select name="quarter_num" class="btn btn-light dropdown-toggle">
                 <option value="1"  >January - March</option>
                 <option value="2"  >April - June</option>
                 <option value="3"  >July - September</option>

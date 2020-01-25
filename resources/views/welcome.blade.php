@@ -2,12 +2,15 @@
 
 @section('content')
 
-<div class="row">
-    <div class="col-md-2" style="background-color:#204a84;">
-        @include('admin.inc.sidebar')
-    </div>
+<div class="sidenav">
+  <a href="/index">Index</a>
+  <a href="#clients">Clients</a>
+  <a href="#contact">Contact</a>
+</div>
 
-<div class="col-9">
+<div class="row container mx-auto">
+<img src="{{asset('img_3.jpg')}}" class="img-fluid mb-4" alt="" style="width:94%; margin-left:3%;">
+<div class="col-12">
   <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">

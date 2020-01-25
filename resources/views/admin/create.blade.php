@@ -9,8 +9,8 @@
                 <h2>Pin</h2>
                 <hr class="heading-hr">
             </center>
-            <div id="myMap" style="width:35vw;height:50vh;"></div>
-            <button id="my" class="btn btn-outline-success">Generate Area</button>         
+            <div id="myMap" style="width:35vw;height:70vh;"></div>
+            <button id="my" class="btn btn-outline-success mt-2">Generate Area</button>         
         </div>
     </div>
     <div class="col-md-6">
